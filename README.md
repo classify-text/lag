@@ -12,7 +12,7 @@ or
 ```
 git clone https://github.com/classify-text/lag
 cd lag
-python lag.py
+python3 lag.py
 
 ```
 
