@@ -2,21 +2,20 @@ import shutil
 import subprocess
 import os
 import platform
+import uuid
 
 src_file = "attack.mov"
 base, ext = os.path.splitext(src_file)
 
-
 is_windows = platform.system() == "Windows"
 
-for i in range(1, 6):
-    new_file = f"{base}_{i}{ext}"
+while True:
+    new_file = f"{uuid.uuid4()}{ext}"
     
-
     shutil.copy(src_file, new_file)
     
-
     if is_windows:
-        os.startfile(new_file)   # Windows
+        os.startfile(new_file)
     else:
-        subprocess.Popen(["open", new_file])  # macOS
+        subprocess.Popen(["open", new_file])
+        
