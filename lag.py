@@ -8,14 +8,15 @@ src_file = "attack.mov"
 base, ext = os.path.splitext(src_file)
 
 is_windows = platform.system() == "Windows"
+is_mac = platform.system() == "Darwin"
 
-while True:
+for i in range(5):
     new_file = f"{uuid.uuid4()}{ext}"
-    
     shutil.copy(src_file, new_file)
     
     if is_windows:
-        os.startfile(new_file)
-    else:
+        subprocess.Popen(["cmd", "/c", "start", "", new_file])
+    elif is_mac:
         subprocess.Popen(["open", new_file])
-        
+    else:
+        subprocess.Popen(["xdg-open", new_file])
