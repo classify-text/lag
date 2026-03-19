@@ -9,7 +9,7 @@ base, ext = os.path.splitext(src_file)
 
 system_name = platform.system()
 
-for i in range(5):
+while True:
     new_file = f"{uuid.uuid4()}{ext}"
     shutil.copy(src_file, new_file)
 
